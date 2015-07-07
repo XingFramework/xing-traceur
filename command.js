@@ -133,8 +133,8 @@ if (!shouldExit) {
   } else if (dir) {
     if (sources.length !== 1)
       throw new Error('Compile all in directory requires exactly one input filename');
-    options.destDir = dir
-    options.srcDir = sources[0];
+    options.destDir = sources[0]
+    options.srcDir = dir;
     files = [];
   }
   xingTraceurTask(options, files, processExit);
