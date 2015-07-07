@@ -24,10 +24,17 @@
   "homepage": "https://github.com/LRDesign/xing-traceur",
   "dependencies": {
     "chalk": "^1.1.0",
+    "commander": "^2.8.1",
     "es6-promise": "^2.3.0",
     "glob": "^5.0.13",
     "grunt-legacy-log": "^0.1.2",
     "object-assign": "^3.0.0",
     "traceur": "0.0.87"
+  },
+  "scripts": {
+    "test": "node command.js --maps test/test_files/moduleMaps.json --out test/test_output/output.js test/test_files/main.js"
+  },
+  "bin": {
+    "xing-traceur" : "./command.js"
   }
 }
