@@ -32,7 +32,7 @@
     "traceur": "0.0.87"
   },
   "scripts": {
-    "test": "node command.js --maps test/test_files/moduleMaps.json --out test/test_output/output.js test/test_files/main.js"
+    "test": "./command.js --maps test/test_files/moduleMaps.json --out test/test_output/output.js test/test_files/main.js"
   },
   "bin": {
     "xing-traceur" : "./command.js"
