@@ -1,6 +1,6 @@
 {
   "name": "xing-traceur",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Traceur Task for Xing",
   "main": "index.js",
   "scripts": {
