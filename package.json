@@ -1,0 +1,32 @@
+{
+  "name": "xing-traceur",
+  "version": "0.0.2",
+  "description": "Traceur Task for Xing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/LRDesign/xing-traceur.git"
+  },
+  "keywords": [
+    "es6",
+    "traceur",
+    "xing",
+    "npm"
+  ],
+  "author": "Logical Reality Design (Evan Dorn, Judson Lester, Hannah Howard)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LRDesign/xing-traceur/issues"
+  },
+  "homepage": "https://github.com/LRDesign/xing-traceur",
+  "dependencies": {
+    "chalk": "^1.1.0",
+    "es6-promise": "^2.3.0",
+    "glob": "^5.0.13",
+    "grunt-legacy-log": "^0.1.2",
+    "traceur": "0.0.87"
+  }
+}
