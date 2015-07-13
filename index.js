@@ -66,9 +66,9 @@ function runTraceur(log) {
     return function(f) {
       log.writeln("injecting:   " + chalk.green(f.dest + " <- " + options.traceurRuntime));
       var rt = fs.readFileSync(options.traceurRuntime, { encoding: "utf8" });
-      var txt = fs.readFileSync.read(f.dest, { encoding: "utf8" });
+      var txt = fs.readFileSync(f.dest, { encoding: "utf8" });
       txt = rt + "\n" + txt;
-      fs.write(f.dest, txt, { encoding: "utf8" });
+      fs.writeFileSync(f.dest, txt, { encoding: "utf8" });
     }
   }
 

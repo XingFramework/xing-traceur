@@ -1,6 +1,7 @@
 var rawTask = require('../index.js').rawTask;
 
 var options = {
+  includeRuntime: true,
   traceurOptions: {
     sourceMaps: true
   },
