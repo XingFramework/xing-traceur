@@ -1,6 +1,6 @@
 {
   "name": "xing-traceur",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Traceur Task for Xing",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
     "url": "git://github.com/LRDesign/xing-traceur.git"
   },
   "keywords": [
+    "gruntplugin",
     "es6",
     "traceur",
     "xing",
@@ -22,6 +23,9 @@
     "url": "https://github.com/LRDesign/xing-traceur/issues"
   },
   "homepage": "https://github.com/LRDesign/xing-traceur",
+  "peerDependencies": {
+    "grunt": "^0.4.0"
+  },
   "dependencies": {
     "chalk": "^1.1.0",
     "commander": "^2.8.1",
