@@ -28,14 +28,14 @@
 /* global __dirname: false */
 
 /*  Grunt plugin information  */
-var NAME = "traceur";
+var NAME = "xing-traceur";
 var DESC = "Transpiles ECMAScript 6 to ECMAScript 5 with Traceur";
 
 /*  external requirements  */
 var exec  = require("child_process").exec;
 var os    = require("os");
 var chalk = require("chalk");
-var traceurCompiler = require("./xing-traceur/traceurCompiler")
+var traceurCompiler = require("./xing-traceur/traceurCompiler");
 var fs = require("fs");
 var og = require("grunt-legacy-log").Log;
 var Log = require('grunt-legacy-log').Log;
@@ -43,14 +43,14 @@ var objectAssign = require('object-assign');
 var gruntStyleLog = new Log();
 
 /*  external paths to Traceur  */
-var traceurRuntimePath = traceurCompiler.RUNTIME_PATH
+var traceurRuntimePath = traceurCompiler.RUNTIME_PATH;
 
 var defaultOptions = {
   traceurRuntime: traceurRuntimePath,
   traceurOptions: {},
   moduleMaps: {},
   includeRuntime: false
-}
+};
 
 function runTraceur(log) {
   function makeDone(promise, done){
@@ -69,7 +69,7 @@ function runTraceur(log) {
       var txt = fs.readFileSync(f.dest, { encoding: "utf8" });
       txt = rt + "\n" + txt;
       fs.writeFileSync(f.dest, txt, { encoding: "utf8" });
-    }
+    };
   }
 
   function logCompileErrors(f) {
@@ -85,12 +85,12 @@ function runTraceur(log) {
         log.error(err.stack || err);
       });
       throw new Error(errors[0]);
-    }
+    };
   }
 
   function compileSingleFile(f, commandOptions) {
     out = f.dest;
-    rootSources = f.src.map(function (name) { return {name: name, type: 'module'}})
+    rootSources = f.src.map(function (name) { return {name: name, type: 'module'};});
 
     var promise = traceurCompiler.recursiveCompile(out, rootSources, commandOptions)
     .then(function() {
@@ -146,23 +146,23 @@ var rawTask = function(options, files, done) {
   var mergedOptions = objectAssign(defaultOptions, options);
   return runTraceur(gruntStyleLog)(mergedOptions, files, done);
 
-}
+};
 
-var gruntTask = function(grunt) {
+var registerGruntTask = function(grunt) {
   traceurTask = runTraceur(grunt.log);
   var withCatch = function() {
     try {
       var options = this.options(defaultOptions);
-      traceurTask(options, this.files, this.async())
+      traceurTask(options, this.files, this.async());
     }
     catch (e) {
-      grunt.fail.fatal(e)
+      grunt.fail.fatal(e);
     }
-  }
+  };
   grunt.registerMultiTask(NAME, DESC, withCatch);
-}
+};
 
 module.exports = {
   rawTask: rawTask,
-  gruntTask: gruntTask
-}
+  gruntTask: registerGruntTask
+};
